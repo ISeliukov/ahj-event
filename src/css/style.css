@@ -1,0 +1,74 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: inherit;
+  font-weight: 400;
+}
+//-----------------------------------
+
+body {
+  background: #888;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.container {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.title {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font: 30px sans-serif;
+}
+
+.gamestat {
+  width: 100%;
+  margin: 40px;
+  text-align: center;
+  font: 30px sans-serif;
+}
+
+.hole {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  background: blue;
+  border-radius: 10%;
+}
+
+.goblin {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 10%;
+  background-image: url("../img/goblin.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: green;
+}
