@@ -5,7 +5,7 @@ export default class App {
 
     this.tekHole = 1;
     this.elemgobl = '';
-	
+
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('wrapper');
     this.container = document.createElement('div');
@@ -24,7 +24,7 @@ export default class App {
     }
     this.gameStat = document.createElement('div');
     this.gameStat.classList.add('gamestat');
-	this.container.append(this.gameStat);
+    this.container.append(this.gameStat);
     document.body.append(this.wrapper);
   }
 
