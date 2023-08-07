@@ -3,8 +3,9 @@ export default class App {
     this.gobl = document.createElement('div');
     this.gobl.classList.add('goblin');
 
-    this.tekHole = 1;
-    this.elemgobl = '';
+    this.size = size;
+    this.oldHole = 1;
+    this.timerId = 0;
 
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('wrapper');
@@ -15,36 +16,30 @@ export default class App {
     this.title.classList.add('title');
     this.title.innerText = 'GOBLIN';
     this.container.append(this.title);
-    this.masdiv = [];
     for (let i = 0; i < size * size; i += 1) {
-      this.masdiv[i] = document.createElement('div');
-      this.masdiv[i].classList.add('hole');
-      this.masdiv[i].setAttribute('id', `hole${i}`);
-      this.container.append(this.masdiv[i]);
+      let elem = document.createElement('div');
+      elem.classList.add('hole');
+      this.container.append(elem);
     }
     this.gameStat = document.createElement('div');
     this.gameStat.classList.add('gamestat');
     this.container.append(this.gameStat);
     document.body.append(this.wrapper);
+    this.cells = document.querySelectorAll('.hole');
   }
 
-  static getHole(ind) {
-    return document.getElementById(`hole${ind}`);
-  }
-
-  moveGobl(ind) {
-    this.elemgobl = App.getHole(ind);
-    this.elemgobl.append(this.gobl);
+  moveGoblin() {
+    let newHole = this.oldHole;
+    while (newHole === this.oldHole) {
+      newHole = Math.floor(Math.random() * this.size * this.size);
+    }
+    this.oldHole = newHole;
+    this.cells[newHole].append(this.gobl);
   }
 
   gamePlay() {
     this.timerId = setInterval(() => {
-      let newHole = this.tekHole;
-      while (newHole === this.tekHole) {
-        newHole = Math.floor(Math.random() * this.masdiv.length);
-      }
-      this.tekHole = newHole;
-      this.moveGobl(this.tekHole);
+      this.moveGoblin();
     }, 1000);
   }
 }
